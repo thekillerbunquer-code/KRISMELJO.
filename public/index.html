@@ -4,36 +4,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VELTRIQ GLOBAL.</title>
+<title>VELTRIQ GLOBAL | AI</title>
+
 <style>
-body{margin:0;background:#0b1020;color:#fff;font-family:Arial,sans-serif}
-header{padding:22px;background:#111a30;border-bottom:1px solid #263452}
-h1{color:#8b9cff;margin:0}
-main{max-width:800px;margin:50px auto;padding:20px}
-.box{background:#151d33;border:1px solid #303d60;border-radius:16px;padding:25px}
-textarea{width:100%;height:100px;background:#0b1020;color:white;border:1px solid #35446b;border-radius:10px;padding:12px;box-sizing:border-box}
-button{margin-top:12px;padding:13px 25px;background:#6558e8;color:white;border:0;border-radius:9px;cursor:pointer}
-#respuesta{margin-top:20px;white-space:pre-wrap}
+:root {
+  --bg:#080c18;
+  --panel:#10182b;
+  --line:#243454;
+  --blue:#6b7cff;
+  --cyan:#36d9f5;
+  --text:#eef3ff;
+  --muted:#98a8c8;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:radial-gradient(circle at 50% 0,#172442 0%,var(--bg) 55%);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+}
+header {
+  padding:22px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  background:#080c18cc;
+}
+.brand {display:flex;align-items:center;gap:15px}
+.brand img {width:58px;height:58px;object-fit:contain}
+.brand h1 {
+  margin:0;
+  font-size:23px;
+  letter-spacing:2px;
+}
+.brand span {color:var(--cyan)}
+.status {color:#6ee7bd;font-size:13px}
+main {max-width:1200px;margin:55px auto;padding:0 24px}
+.hero {text-align:center;margin-bottom:45px}
+.hero h2 {font-size:clamp(30px,5vw,58px);margin:0 0 15px}
+.hero h2 span {
+  background:linear-gradient(90deg,#8190ff,#36d9f5);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.hero p {color:var(--muted);font-size:17px}
+.grid {
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:22px;
+}
+.panel {
+  background:linear-gradient(145deg,#111a30,#0c1324);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+}
+.panel h3 {margin-top:0}
+.menu button {
+  display:block;width:100%;text-align:left;
+  margin:10px 0;padding:13px;
+  border:1px solid transparent;
+  background:#151f36;color:#cbd8f5;
+  border-radius:10px;cursor:pointer;
+}
+.menu button:hover {
+  border-color:var(--blue);
+  color:white;
+}
+.chat {min-height:470px;display:flex;flex-direction:column}
+#respuesta {
+  flex:1;min-height:250px;
+  padding:15px 0;white-space:pre-wrap;
+  line-height:1.7;color:#dce7ff;
+}
+textarea {
+  width:100%;height:100px;resize:vertical;
+  background:#080e1c;color:white;
+  border:1px solid #304365;
+  border-radius:12px;padding:15px;
+  font:inherit;outline:none;
+}
+textarea:focus {border-color:var(--cyan)}
+.actions {
+  display:flex;justify-content:space-between;
+  align-items:center;margin-top:14px;gap:12px;
+}
+button.primary {
+  background:linear-gradient(90deg,#6474ff,#347cf5);
+  border:0;border-radius:10px;
+  padding:14px 25px;color:white;
+  font-weight:600;cursor:pointer;
+}
+button.primary:disabled {opacity:.5}
+.note {font-size:12px;color:var(--muted)}
+footer {
+  text-align:center;color:#7182a4;
+  padding:35px 15px;font-size:13px;
+}
+@media(max-width:800px) {
+  .grid {grid-template-columns:1fr}
+  .menu {display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .menu button {margin:0}
+  header {padding:18px}
+}
 </style>
 </head>
+
 <body>
-<header><h1>VELTRIQ GLOBAL</h1><p>Intelligence Without Boundaries</p></header>
-<main><div class="box">
-<h2>¿En qué puedo ayudarte?</h2>
-<textarea id="mensaje" placeholder="Escribe aquí tu mensaje..."></textarea>
-<button onclick="enviar()">Enviar mensaje</button>
-<div id="respuesta"></div>
-</div></main>
+
+<header>
+  <div class="brand">
+    <img src="/756491b4-77b4-4dc1-80d2-8babcc6c5c34.png"
+         alt="VELTRIQ GLOBAL">
+    <h1>VELTRIQ <span>GLOBAL</span></h1>
+  </div>
+  <div class="status">● INTELLIGENCE ONLINE</div>
+</header>
+
+<main>
+  <section class="hero">
+    <h2>Intelligence <span>Without Boundaries</span></h2>
+    <p>Una nueva dimensión de inteligencia artificial.</p>
+  </section>
+
+  <div class="grid">
+    <section class="panel">
+      <h3>Áreas de inteligencia</h3>
+      <div class="menu">
+        <button onclick="tema('Ingeniería y desarrollo industrial')">Ingeniería</button>
+        <button onclick="tema('Energía y petróleo')">Energía y petróleo</button>
+        <button onclick="tema('Tecnología e innovación')">Tecnología</button>
+        <button onclick="tema('Proyectos internacionales')">Proyectos</button>
+        <button onclick="tema('Análisis empresarial')">Empresa</button>
+        <button onclick="tema('Investigación y desarrollo')">Investigación</button>
+      </div>
+    </section>
+
+    <section class="panel chat">
+      <h3>VELTRIQ AI <span style="color:#36d9f5">/ Asistente</span></h3>
+
+      <div id="respuesta">
+        Bienvenido a VELTRIQ GLOBAL.
+
+        Tu inteligencia artificial está preparada para ayudarte.
+        Escribe tu consulta para comenzar.
+      </div>
+
+      <textarea id="mensaje"
+        placeholder="Escribe tu consulta aquí..."></textarea>
+
+      <div class="actions">
+        <span class="note">Powered by VELTRIQ AI</span>
+        <button class="primary" id="enviar" onclick="enviar()">
+          Enviar consulta ↗
+        </button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  VELTRIQ GLOBAL · Intelligence Without Boundaries
+  <br><br>
+  © 2026 VELTRIQ GLOBAL
+</footer>
+
 <script>
-async function enviar(){
-const m=document.getElementById("mensaje").value;
-const r=document.getElementById("respuesta");
-r.textContent="Nexora está preparando tu respuesta...";
-try{
-const res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:m})});
-const d=await res.json();r.textContent=d.reply;
-}catch(e){r.textContent="No se pudo conectar con el servidor.";}
+function tema(t) {
+  document.getElementById("mensaje").value =
+    "Quiero trabajar en el área de " + t;
+  document.getElementById("mensaje").focus();
+}
+
+async function enviar() {
+  const mensaje = document.getElementById("mensaje").value.trim();
+  const respuesta = document.getElementById("respuesta");
+  const boton = document.getElementById("enviar");
+
+  if (!mensaje) {
+    respuesta.textContent = "Escribe primero tu consulta.";
+    return;
+  }
+
+  boton.disabled = true;
+  boton.textContent = "Procesando...";
+  respuesta.textContent = "VELTRIQ AI está pensando...";
+
+  try {
+    const r = await fetch("/api/chat", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({message:mensaje})
+    });
+
+    const data = await r.json();
+
+    if (!r.ok) throw new Error(data.error || "Error del servidor");
+
+    respuesta.textContent =
+      data.reply || data.output || data.response ||
+      JSON.stringify(data);
+
+  } catch(e) {
+    respuesta.textContent =
+      "No se pudo obtener respuesta: " + e.message;
+  }
+
+  boton.disabled = false;
+  boton.textContent = "Enviar consulta ↗";
 }
 </script>
+
 </body>
 </html>
