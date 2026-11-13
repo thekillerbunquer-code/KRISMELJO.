@@ -52,7 +52,7 @@ function rateLimit(req, res, next) {
 }
 
 app.get("/health", (req, res) => {
-  res.json({ status: "ok", app: "KRISMELJO GLOBAL" });
+  res.json({ status: "ok", app: "BERJAMNS GLOBAL" });
 });
 
 app.post("/api/chat", rateLimit, async (req, res) => {
@@ -85,7 +85,8 @@ app.post("/api/chat", rateLimit, async (req, res) => {
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
-        instructions: "Eres KRISMELJO AI, asistente de KRISMELJO GLOBAL. Responde en español, con precisión y respeto.",
+        instructions: "Eres BERJAMNS AI, el asistente de inteligencia artificial de BERJAMNS GLOBAL. Responde en el idioma del usuario con precisión, profesionalidad y respeto. Ayuda en ingeniería, energía y petróleo, tecnología, proyectos, empresas e investigación. No inventes datos ni afirmes disponer de funciones que no tienes. Si desconoces una respuesta, indícalo.",
+  
         input: message,
         max_output_tokens: 700
       })
@@ -118,5 +119,5 @@ app.post("/api/chat", rateLimit, async (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`KRISMELJO GLOBAL funcionando en puerto ${PORT}`);
+  console.log(`BERJAMNS GLOBAL funcionando en puerto ${PORT}`);
 });
